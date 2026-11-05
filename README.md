@@ -1,88 +1,60 @@
 # lean-blueprint-workflow
 
-**Reusable Agent Skill for writing mathematical / physical explanations in LaTeX alongside Lean 4 formal proofs.**
+A lightweight Agent Skill for keeping **Lean 4 formalizations** and **human-readable LaTeX blueprints** aligned.
 
-Lean 4 による形式化と、leanblueprint による自然言語・LaTeX の定理や証明を対応付けて保守するための公開スキルです。数学・物理のさまざまなリポジトリで使えるよう、特定の研究テーマには依存しません。
+Lean の数学・物理の定義、定理、証明と、leanblueprint による解説を定理単位で対応付けて保守するための公開スキルです。
 
-> This repository contains an **agent skill**, not the upstream `leanblueprint` CLI itself. To build a blueprint, install and configure [Patrick Massot's leanblueprint](https://github.com/PatrickMassot/leanblueprint) in the target Lean project.
+## When to use / 用途
 
-## What the skill does / 機能
+Use this skill when **creating, revising, or reviewing a Lean formalization and its corresponding LaTeX blueprint**, including theorem links and consistency checks.
 
-- 新規または既存の Lean 4 / Lake プロジェクトの構成を確認
-- 定義・補題・定理の Lean 宣言と LaTeX 本文を作成・更新
-- `\lean{...}`、`\uses{...}`、`\leanok` を使って対応付け
-- 物理学の仮定・数式の規約・数学的結論を照合
-- `lake build`、`leanblueprint checkdecls`、`leanblueprint pdf`、`leanblueprint web` の検証結果を整理
-- 論文リポジトリなどから別リポジトリの Lean 宣言を参照する際の、コミット固定と整合性確認
+このスキルは Lean と Blueprint の対応関係を担当します。論文の構成・投稿原稿の執筆は、それぞれの論文リポジトリの方針で管理します。
 
-## Layout
+The canonical executable guidance is [skills/lean-blueprint-workflow/SKILL.md](skills/lean-blueprint-workflow/SKILL.md). The upstream blueprint tool is [leanblueprint](https://github.com/PatrickMassot/leanblueprint).
+
+## Repository contents
 
 ```text
-lean-blueprint-workflow/
-├── LICENSE
-├── README.md
-├── skills/
-│   └── lean-blueprint-workflow/
-│       └── SKILL.md
-└── examples/
-    ├── README.md
-    ├── BlueprintExample.lean
-    └── BlueprintExample.tex
+skills/lean-blueprint-workflow/SKILL.md   # one canonical skill definition
+examples/                                # optional Lean/TeX pairing
+README.md                                 # purpose, activation and setup
+LICENSE                                   # MIT
 ```
 
-This repository **does not impose a directory layout on your research project**. The skill discovers the target project's conventions first.
+The skill works with each research repository's established Lean and document layout. `examples/` contains optional reference material; ordinary skill use relies on the self-contained `SKILL.md`.
 
-## Installation / 導入
+## Install once / 共通インストール
 
-### Codex skill installer
-
-In Codex, ask the skill installer to install the public GitHub skill directory:
+In Codex, request the skill from the public GitHub directory:
 
 ```text
 $skill-installer install https://github.com/supersovaa/lean-blueprint-workflow/tree/main/skills/lean-blueprint-workflow
 ```
 
-### Manual installation for Codex
+Alternatively, install the `skills/lean-blueprint-workflow/` folder as `~/.agents/skills/lean-blueprint-workflow/` for a user-wide Codex skill, or under a project's `.agents/skills/` for that project.
 
-Place the `skills/lean-blueprint-workflow` directory at:
+Installation makes the skill available through the agent's skill discovery mechanism. Update the installed copy when you want to adopt newer instructions; use a pinned Git revision when reproducibility matters.
 
-- `~/.agents/skills/lean-blueprint-workflow/` to use it across projects, or
-- `<your-project>/.agents/skills/lean-blueprint-workflow/` to share it with one project.
+## Link it from each research repository / 研究リポジトリからの参照
 
-Codex loads local skill directories with a `SKILL.md` file. Check [Build skills](https://learn.chatgpt.com/docs/build-skills) for current installation and distribution guidance. A public GitHub repository by itself does not automatically register the skill in ChatGPT or Codex.
+Use the following work-type entry in the repository's `AGENTS.md` (or its established task-specific guidance):
 
-## Example prompt / 使用例
+```md
+## Lean formalization and blueprint work
 
-```text
-Use lean-blueprint-workflow. Add a theorem to my Lean project,
-write its mathematical explanation in the blueprint,
-connect them with the fully qualified Lean declaration name,
-and report which checks actually passed.
+When creating, revising, or reviewing Lean 4 definitions, theorems,
+or proofs together with their LaTeX blueprint, read and apply
+[lean-blueprint-workflow](https://github.com/supersovaa/lean-blueprint-workflow/blob/main/skills/lean-blueprint-workflow/SKILL.md).
 ```
 
-日本語の例：
+This direct link identifies the **single canonical rule source**. In an environment where the skill is installed, the agent can also activate it through skill discovery. When operating through a GitHub connection, the agent should open the linked `SKILL.md` at the start of this type of work. A link in `AGENTS.md` is a routing instruction; the agent needs access to the linked source.
 
-```text
-lean-blueprint-workflow を使って、この定理の Lean 証明と
-対応する LaTeX の解説を作り、両者の仮定と結論を照合してください。
-実行した検証の結果も報告してください。
-```
+For a paper in another repository, identify which Lean repository, commit, and fully qualified declarations the paper uses.
 
-See [examples/](./examples/) for a minimal Lean/TeX pairing. The TeX example is an excerpt, not a standalone document.
+## Optional example
 
-## Validation in the target project
-
-Once Lean, `leanblueprint` and the relevant document tools are configured:
-
-```sh
-lake build
-leanblueprint checkdecls
-leanblueprint pdf
-leanblueprint web
-```
-
-The CLI's `checkdecls` checks declaration **existence**. Lean checks proofs; the correspondence between human prose and formal statement still requires review. `\leanok` is a status annotation rather than a compiler check.
+[examples/](examples/) shows a small Lean theorem and corresponding LaTeX theorem. Add the example to an initialized Lean/leanblueprint project before trying the compile and document commands.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT — see [LICENSE](LICENSE).
