@@ -1,0 +1,13 @@
+% Include this snippet from blueprint/src/content.tex after initializing leanblueprint.
+% The preamble/environment definitions come from the project's blueprint.
+\begin{theorem}
+  \label{thm:blueprint-example-add-zero}
+  \lean{BlueprintExample.add_zero}
+  \leanok
+  For every natural number $n$, we have $n+0=n$.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  Addition of zero leaves a natural number unchanged.
+\end{proof}
