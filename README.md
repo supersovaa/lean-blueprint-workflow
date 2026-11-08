@@ -6,7 +6,7 @@ Lean の数学・物理の定義、定理、証明と、leanblueprint による�
 
 ## When to use / 用途
 
-Use this skill when **creating, revising, or reviewing a Lean formalization and its corresponding LaTeX blueprint**, including theorem links and consistency checks.
+Use this skill when **creating, revising, or reviewing a Lean formalization and its corresponding LaTeX blueprint**, including theorem links and consistency checks. The workflow uses the selected checkout's guidance and checks that readers can reach the paired sources from the project's entry points.
 
 このスキルは Lean と Blueprint の対応関係を担当します。論文の構成・投稿原稿の執筆は、それぞれの論文リポジトリの方針で管理します。
 
@@ -21,7 +21,7 @@ README.md                                 # purpose, activation and setup
 LICENSE                                   # MIT
 ```
 
-The skill works with each research repository's established Lean and document layout. `examples/` contains optional reference material; ordinary skill use relies on the self-contained `SKILL.md`.
+The skill works with each research repository's established Lean and document layout, using Lake to resolve source roots. Naming and documentation navigation are owned by [scope-aligned-naming](https://github.com/supersovaa/scope-aligned-naming/blob/2224434948e064209097b549945b658fd07ab948/SKILL.md) and [index-driven-docs](https://github.com/supersovaa/index-driven-docs/blob/f64230344a72ceaee351d9a51c48397b74c5f0fa/SKILL.md), respectively; the workflow references them where those concerns arise. `examples/` contains optional reference material; ordinary skill use starts from `SKILL.md` and follows its referenced guidance.
 
 ## Install once / 共通インストール
 
