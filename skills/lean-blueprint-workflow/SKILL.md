@@ -9,10 +9,14 @@ Use this skill when creating, revising, or reviewing Lean 4 definitions, theorem
 
 ## Understand the project
 
-1. Identify the target repository and read its Lean/Lake setup, existing blueprint, local conventions, and relevant definitions. Follow its established module and chapter boundaries.
+1. Select the target repository and checkout, then read applicable repository and directory-local guidance (including `AGENTS.md` and linked skills) from that revision. After a branch, worktree, or revision change, recheck those entry points and refresh affected guidance and skill references. Read the Lean/Lake setup, existing blueprint, and relevant definitions from the selected checkout.
 2. Find existing declarations and TeX labels before creating new ones. Prefer relevant definitions and theorems already available in the project or its dependencies.
-3. For a new project, keep Lean modules and TeX chapters in their respective directories, such as `Project/Topic/Result.lean` and `blueprint/src/Topic/Result.tex`. Treat matching paths as a navigation aid; identify exact correspondence by declaration names and TeX labels.
+3. Identify the roles and entry points for Lean sources, the mathematical manuscript, the blueprint, and generated outputs. Follow established module and chapter boundaries, applying [scope-aligned-naming](https://github.com/supersovaa/scope-aligned-naming/blob/2224434948e064209097b549945b658fd07ab948/SKILL.md) to changed names and paths. Resolve physical source roots through Lake configuration. For a new project, paths such as `Project/Topic/Result.lean` and `blueprint/src/Topic/Result.tex` can aid navigation; declaration names and TeX labels establish exact correspondence. Apply [index-driven-docs](https://github.com/supersovaa/index-driven-docs/blob/f64230344a72ceaee351d9a51c48397b74c5f0fa/SKILL.md) within its documentation scope, preserving tool-managed chapter navigation.
 4. If the project needs blueprint initialization, use the upstream `leanblueprint` setup for the installed version and inspect the generated files before integrating them with the existing project.
+
+## Establish the task obligations
+
+Before editing, translate the applicable guidance and requested scope into concrete changes and checks: affected Lean modules and TeX statements, placement and navigation updates, and required verification. Reuse the current task context or established plan/handoff for these obligations. Reconcile them when the task or governing guidance changes.
 
 ## Work on the formalization and explanation
 
@@ -29,12 +33,15 @@ Run applicable checks from the target project root:
 
 ```sh
 lake build
-leanblueprint checkdecls
 leanblueprint pdf
 leanblueprint web
+leanblueprint checkdecls
 ```
 
+- Build the web blueprint before `checkdecls`; web generation creates the declaration list that `checkdecls` reads.
+- Check the task obligations against the resulting files and actual verification evidence.
 - Ensure each changed Lean module is included in the relevant build or compile it directly.
+- Check that the repository's primary entry document links to the Lean source entry, manuscript, and blueprint. Check document indexes or tool-managed chapter inputs, plus links from rendered statements to the corresponding source declarations. Update these paths with file moves.
 - `checkdecls` checks referenced declaration names; compare the mathematical meaning of Lean and TeX separately.
 - Inspect the PDF/HTML rendering, references, formulae, and character encoding when building documents.
 - Audit proofs for `sorry`, `admit`, additional axioms, and unintended hypotheses. Report precisely which claims are formally established.
@@ -46,7 +53,7 @@ When a separate paper or research repository refers to Lean results, resolve the
 
 ## Report the outcome
 
-List the changed Lean and TeX paths, matched declaration names and labels, assumptions/conclusions checked, verification results, and any remaining formalization work.
+Report completion against the requested scope and task obligations. Identify the changed Lean and TeX paths, matched declaration names and labels, assumptions/conclusions checked, verification results, and remaining work. Distinguish a verified subset or progress checkpoint from completion of the requested work.
 
 ## References
 
