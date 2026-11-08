@@ -33,11 +33,12 @@ Run applicable checks from the target project root:
 
 ```sh
 lake build
-leanblueprint checkdecls
 leanblueprint pdf
 leanblueprint web
+leanblueprint checkdecls
 ```
 
+- Build the web blueprint before `checkdecls`; web generation creates the declaration list that `checkdecls` reads.
 - Check the task obligations against the resulting files and actual verification evidence.
 - Ensure each changed Lean module is included in the relevant build or compile it directly.
 - Check that the repository's primary entry document links to the Lean source entry, manuscript, and blueprint. Check document indexes or tool-managed chapter inputs, plus links from rendered statements to the corresponding source declarations. Update these paths with file moves.
