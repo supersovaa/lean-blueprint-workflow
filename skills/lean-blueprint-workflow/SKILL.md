@@ -11,12 +11,16 @@ Use this skill when creating, revising, or reviewing Lean 4 definitions, theorem
 
 1. Select the target repository and checkout, then read applicable repository and directory-local guidance (including `AGENTS.md` and linked skills) from that revision. After a branch, worktree, or revision change, recheck those entry points and refresh affected guidance and skill references. Read the Lean/Lake setup, existing blueprint, and relevant definitions from the selected checkout.
 2. Find existing declarations and TeX labels before creating new ones. Prefer relevant definitions and theorems already available in the project or its dependencies.
-3. Identify the roles and entry points for Lean sources, the mathematical manuscript, the blueprint, and generated outputs. Follow established module and chapter boundaries, applying [scope-aligned-naming](https://github.com/supersovaa/scope-aligned-naming/blob/2224434948e064209097b549945b658fd07ab948/SKILL.md) to changed names and paths. Resolve physical source roots through Lake configuration. For a new project, paths such as `Project/Topic/Result.lean` and `blueprint/src/Topic/Result.tex` can aid navigation; declaration names and TeX labels establish exact correspondence. Apply [index-driven-docs](https://github.com/supersovaa/index-driven-docs/blob/f64230344a72ceaee351d9a51c48397b74c5f0fa/SKILL.md) within its documentation scope, preserving tool-managed chapter navigation.
+3. Identify the roles and entry points for Lean sources, the mathematical manuscript, the blueprint, and generated outputs. Apply [scope-aligned-naming](https://github.com/supersovaa/scope-aligned-naming/blob/6b3b31ffe764270fd22a04f4bd0ecaaf2a94bba4/SKILL.md) to the affected names and hierarchy, including the upper levels. Resolve physical source roots through Lake configuration. Choose module paths from the project's actual responsibilities and import requirements; declaration names and TeX labels establish exact correspondence. Apply [index-driven-docs](https://github.com/supersovaa/index-driven-docs/blob/f64230344a72ceaee351d9a51c48397b74c5f0fa/SKILL.md) within its documentation scope, preserving tool-managed chapter navigation.
 4. If the project needs blueprint initialization, use the upstream `leanblueprint` setup for the installed version and inspect the generated files before integrating them with the existing project.
 
 ## Establish the task obligations
 
 Before editing, translate the applicable guidance and requested scope into concrete changes and checks: affected Lean modules and TeX statements, placement and navigation updates, and required verification. Reuse the current task context or established plan/handoff for these obligations. Reconcile them when the task or governing guidance changes.
+
+Before introducing a topic or revising module layout, establish its source root, topic entry module, module responsibilities, and dependency direction. Apply the linked naming skill's hierarchy check from the repository root through the topic's modules. Record a concrete reason for each retained project-name directory or namespace prefix. Treat filesystem paths, Lean namespaces, and Lake library names as separate choices, checking the actual build and public import requirements for each. A template's default layout is a starting point to evaluate against those requirements.
+
+For a dedicated repository without an additional module-root requirement, a source root such as `lean/` can directly contain `Topic.lean` and `Topic/Result.lean`. Configure Lake for the chosen layout when initializing it. Within an existing project, include required Lake, import, and reference updates in an authorized structural change.
 
 ## Work on the formalization and explanation
 
@@ -41,6 +45,7 @@ leanblueprint checkdecls
 - Build the web blueprint before `checkdecls`; web generation creates the declaration list that `checkdecls` reads.
 - Check the task obligations against the resulting files and actual verification evidence.
 - Ensure each changed Lean module is included in the relevant build or compile it directly.
+- Recheck the affected hierarchy, including its upper levels, against the recorded responsibilities and requirements. Confirm that each topic's entry module exposes its intended results and that structural changes are reflected in audit scripts, packaging tools, and source links.
 - Check that the repository's primary entry document links to the Lean source entry, manuscript, and blueprint. Check document indexes or tool-managed chapter inputs, plus links from rendered statements to the corresponding source declarations. Update these paths with file moves.
 - `checkdecls` checks referenced declaration names; compare the mathematical meaning of Lean and TeX separately.
 - Inspect the PDF/HTML rendering, references, formulae, and character encoding when building documents.
