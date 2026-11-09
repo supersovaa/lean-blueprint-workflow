@@ -21,7 +21,7 @@ README.md                                 # purpose, activation and setup
 LICENSE                                   # MIT
 ```
 
-The skill works with each research repository's established Lean and document layout, using Lake to resolve source roots. Naming and documentation navigation are owned by [scope-aligned-naming](https://github.com/supersovaa/scope-aligned-naming/blob/2224434948e064209097b549945b658fd07ab948/SKILL.md) and [index-driven-docs](https://github.com/supersovaa/index-driven-docs/blob/f64230344a72ceaee351d9a51c48397b74c5f0fa/SKILL.md), respectively; the workflow references them where those concerns arise. `examples/` contains optional reference material; ordinary skill use starts from `SKILL.md` and follows its referenced guidance.
+The workflow first establishes statement contracts, source structure, and paired deliverables; implementation and verification both follow that plan. It reads Lake to identify actual build requirements and configures the selected layout accordingly. Naming and documentation navigation are owned by [scope-aligned-naming](https://github.com/supersovaa/scope-aligned-naming/blob/5d6099f7dd773781ab66d83a5d916b476a047602/SKILL.md) and [index-driven-docs](https://github.com/supersovaa/index-driven-docs/blob/f64230344a72ceaee351d9a51c48397b74c5f0fa/SKILL.md), respectively. `examples/` contains optional reference material; ordinary skill use starts from `SKILL.md` and follows its referenced guidance.
 
 ## Install once / 共通インストール
 
