@@ -7,6 +7,8 @@ description: Maintain Lean 4 definitions, theorems, and proofs together with the
 
 Use this skill when creating, revising, or reviewing Lean 4 definitions, theorems, or proofs together with their LaTeX blueprint explanations. Keep the blueprint readable for humans and the matching Lean statements mechanically checkable.
 
+When creating, revising, or reviewing the TeX or blueprint explanations, read and apply [self-contained-tex-writing](../self-contained-tex-writing/SKILL.md). That skill owns the completeness of the mathematical exposition; this workflow owns the correspondence and verification of the Lean/TeX pair.
+
 ## Understand the project
 
 1. Select the repository and checkout, then read applicable repository and directory-local guidance, including `AGENTS.md` and linked skills. After a branch, worktree, or revision change, refresh affected guidance and references.
