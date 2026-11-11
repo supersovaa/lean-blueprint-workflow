@@ -8,7 +8,7 @@ Lean と TeX の対応管理、および TeX 文書内で説明を完結させ�
 
 Use `lean-blueprint-workflow` when **creating, revising, or reviewing a Lean formalization and its corresponding LaTeX blueprint**, including theorem links and consistency checks. The workflow uses the selected checkout's guidance and checks that readers can reach the paired sources from the project's entry points.
 
-`lean-blueprint-workflow` は Lean と Blueprint の対応関係を担当します。`self-contained-tex-writing` は、TeX 本文・Blueprint の作成・修正・レビューで、定義・仮定・導出・結論を文書内にそろえる書き方を担当します。TeX 執筆のスキルは単独でも利用できます。論文の構成・投稿形式は、それぞれの論文リポジトリの方針で管理します。
+`lean-blueprint-workflow` は Lean と Blueprint の対応関係を担当します。`self-contained-tex-writing` は、TeX 本文・Blueprint の作成・修正・レビューで、定義・仮定・導出・結論を文書内にそろえる書き方を担当します。主本文では問いから結論までの流れを示し、基礎事項の詳細証明は独立した TeX の補助資料にまとめて参照します。TeX 執筆のスキルは単独でも利用できます。論文の構成・投稿形式は、それぞれの論文リポジトリの方針で管理します。
 
 The canonical guidance is [skills/lean-blueprint-workflow/SKILL.md](skills/lean-blueprint-workflow/SKILL.md) for paired work and [skills/self-contained-tex-writing/SKILL.md](skills/self-contained-tex-writing/SKILL.md) for TeX exposition. The upstream blueprint tool is [leanblueprint](https://github.com/PatrickMassot/leanblueprint).
 
