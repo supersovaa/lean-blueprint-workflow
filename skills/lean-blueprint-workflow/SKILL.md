@@ -1,11 +1,11 @@
 ---
 name: lean-blueprint-workflow
-description: Maintain Lean 4 definitions, theorems, and proofs together with their corresponding LaTeX blueprint explanations. Use when creating, revising, or reviewing a Lean formalization and its blueprint, including their links and consistency checks.
+description: Create, revise, or review Lean 4 definitions, theorems, and proofs together with their LaTeX blueprint. Check that the linked statements agree.
 ---
 
 # Lean Blueprint Workflow
 
-Use this skill when creating, revising, or reviewing Lean 4 definitions, theorems, or proofs together with their LaTeX blueprint explanations. Keep the blueprint readable for humans and the matching Lean statements mechanically checkable.
+When working on Lean 4 definitions, theorems, or proofs and their LaTeX blueprint, keep the explanation readable for humans and the corresponding Lean statements mechanically checkable.
 
 When creating, revising, or reviewing the TeX or blueprint explanations, read and apply [self-contained-tex-writing](../self-contained-tex-writing/SKILL.md). That skill owns the completeness of the mathematical exposition; this workflow owns the correspondence and verification of the Lean/TeX pair.
 
